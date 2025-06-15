@@ -46,7 +46,10 @@
   // paper-size: "us-letter",
   // side-width: 4cm,
   // gdpr: false,
+<<<<<<< HEAD
   // footer: auto,
+=======
+>>>>>>> d1817f6 (Personal changes + added GDPR usage)
 )
 
 

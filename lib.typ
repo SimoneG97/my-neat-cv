@@ -622,8 +622,22 @@
 // ---- Main CV Template ----
 
 /// Main CV layout. Sets up theme, fonts, page, and structure.
+<<<<<<< HEAD
 ///
 /// -> content
+=======
+/// - author (dictionary): Author information (firstname, lastname, etc.)
+/// - profile-picture (image): Profile picture
+/// - accent-color (color): Accent color for highlights
+/// - font-color (color): Main text color
+/// - date (string): Date string for footer
+/// - heading-font (string): Font for headings
+/// - body-font (array): Font(s) for body text
+/// - paper-size (string): Paper size
+/// - side-width (length): Sidebar width
+/// - gdpr (boolean): Add GDPR data usage in the footer
+/// - body (content): Main content of the CV
+>>>>>>> d1817f6 (Personal changes + added GDPR usage)
 #let cv(
   /// Author information dictionary. Available keys: `firstname`, `lastname`, `email`, `phone`, `address`, `position` (string or array), `website`, `twitter`, `mastodon`, `matrix`, `github`, `gitlab`, `linkedin`, `researchgate`, `scholar`, `orcid`, `custom-links` (array of dictionaries with `icon-name` (optional), `label`, and `url`).
   /// -> dictionary
@@ -658,6 +672,7 @@
   /// Sidebar width
   /// -> length
   side-width: 4cm,
+<<<<<<< HEAD
   /// Add GDPR data usage in the footer
   /// -> boolean
   gdpr: false,
@@ -666,6 +681,9 @@
   footer: auto,
   /// Main content of the CV
   /// -> content
+=======
+  gdpr: false,
+>>>>>>> d1817f6 (Personal changes + added GDPR usage)
   body,
 ) = {
   context {
@@ -711,6 +729,7 @@
           fill: font-color.lighten(50%),
         )
 
+<<<<<<< HEAD
         #grid(
           columns: (side-width, 1fr),
           align: center,
@@ -747,6 +766,33 @@
     } else {
       footer
     },
+=======
+      #grid(
+        columns: (side-width, 1fr),
+        align: center,
+        gutter: 2mm,
+        inset: (col, _) => {
+          if col == 0 {
+            (right: 4mm)
+          } else {
+            (left: 4mm)
+          }
+        },
+        [
+          #context counter(page).display("1 / 1", both: true)
+        ],
+        [
+          #author.firstname #author.lastname CV #box(inset: (x: 3pt), sym.dot.c) #text(date)
+        ],
+        [],
+        if gdpr {
+          [
+            I authorise the processing of personal data contained within my CV, according to GDPR (EU) 2016/679, Article 6.1(a).
+          ]
+        }
+      )
+    ],
+>>>>>>> d1817f6 (Personal changes + added GDPR usage)
   )
 
   set par(spacing: 0.75em, justify: true)
