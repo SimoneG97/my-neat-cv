@@ -107,7 +107,7 @@
 /// -> content
 #let level-bar(
   /// Filled level
-  /// -> int
+  /// -> float
   level,
   /// Maximum level (default: 5)
   /// -> int
@@ -131,12 +131,13 @@
       width: 100%,
       stroke: _accent-color + __stroke_length(0.75),
       rect(
-        width: 100% * if      (level - l < 0) { 0 }
-                      else if (level - l > 1) { 1 }
-                      else                    { level - l },
+        width: 100%
+          * if (level - l < 0) { 0 } else if (level - l > 1) { 1 } else {
+            level - l
+          },
         height: 100%,
         fill: _accent-color,
-      )
+      ),
     ))
     grid(
       columns: (col-width,) * max-level,

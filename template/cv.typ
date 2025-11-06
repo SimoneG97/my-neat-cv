@@ -73,7 +73,7 @@
   #item-with-level("Nuclear Physics", 4)
   #item-with-level("Mechanical Engineering", 5)
   #item-with-level("Electrical Engineering", 4)
-  #item-with-level("Automotive Restoration", 4)
+  #item-with-level("Automotive Restoration", 3.5)
 
   = Technology
   #item-with-level("Flux Capacitor Design", 5)
