@@ -1,4 +1,4 @@
-#import "@preview/neat-cv:0.4.0": (
+#import "@preview/neat-cv:0.5.0": (
   contact-info, cv, email-link, entry, item-pills, item-with-level,
   publications, side, social-links,
 )
@@ -73,7 +73,7 @@
   #item-with-level("Nuclear Physics", 4)
   #item-with-level("Mechanical Engineering", 5)
   #item-with-level("Electrical Engineering", 4)
-  #item-with-level("Automotive Restoration", 4)
+  #item-with-level("Automotive Restoration", 3.5)
 
   = Technology
   #item-with-level("Flux Capacitor Design", 5)

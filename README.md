@@ -7,6 +7,7 @@ A modern and elegant CV template for Typst, inspired by [Awesome CV](https://git
 ## Features
 
 - Modern, clean two-column layout with sidebar
+- Cover letter template
 - Customizable accent color and fonts
 - Publication list generated from Hayagriva YAML, grouped by year, with author highlighting
 - Level bars for languages and skills
@@ -46,6 +47,8 @@ To install the icons, you need to download the "FontAwesome Free For Desktop" pa
 > If you are using the webapp (https://typst.app/), upload the entire `otf/` directory to your project and the fonts will be recognized automatically (possibly after a reload).
 
 ## Usage
+
+### CV
 
 Here is a basic usage example:
 
@@ -103,8 +106,51 @@ Here is a basic usage example:
 
 For a more complete example, see the `template/cv.typ` file in the repository.
 
+### Cover Letter
+
+You can also create a matching cover letter:
+
+```typst
+#import "@preview/neat-cv:0.5.0": letter
+
+#show: letter.with(
+  author: (
+    firstname: "John",
+    lastname: "Smith",
+    email: "john.smith@example.com",
+    address: [123 Main St\ City, Country],
+    phone: "(555) 123-4567",
+    position: ("Data Scientist"),
+    github: "jsmith",
+  ),
+  profile-picture: image("my_profile.png"),
+  accent-color: rgb("#4682b4"),
+  recipient: [
+    Jane Doe\
+    Hiring Manager\
+    Company Inc.\ 456 Business Ave\ City, Country
+  ],
+)
+
+Dear Ms. Doe,
+
+I am writing to express my interest in the Data Scientist position at Company Inc.
+
+// Your letter content here...
+
+Sincerely,
+
+#align(right)[John Smith]
+```
+
+For a complete example, see the `template/letter.typ` file in the repository.
+
 ## Example
 
-|                                |                                |
-| ------------------------------ | ------------------------------ |
-| ![CV Page 1](assets/cv_p1.png) | ![CV Page 2](assets/cv_p2.png) |
+### CV
+
+<img src="assets/cv_p1.png" alt="CV Page 1" width="49%"/> <img src="assets/cv_p2.png" alt="CV Page 2" width="49%"/>
+
+### Cover Letter
+
+<img src="assets/letter.png" alt="Cover letter" width="49%"/>
