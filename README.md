@@ -111,7 +111,7 @@ For a more complete example, see the `template/cv.typ` file in the repository.
 You can also create a matching cover letter:
 
 ```typst
-#import "@preview/neat-cv:0.4.0": letter
+#import "@preview/neat-cv:0.5.0": letter
 
 #show: letter.with(
   author: (
