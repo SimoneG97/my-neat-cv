@@ -33,7 +33,7 @@
   // gdpr: false,
   // footer: auto,
   recipient: [
-    Scroote McDuck\
+    Scrooge McDuck\
     Business tycoon inc.\
     McDuck Manor\ Hill Valley\ California, USA
   ],
