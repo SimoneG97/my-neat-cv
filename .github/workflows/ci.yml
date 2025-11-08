@@ -15,12 +15,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version: "3.14"
 
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.1
@@ -36,7 +36,7 @@ jobs:
         uses: ./.github/actions/setup-fonts
         with:
           manifest-path: manifest.yml
-          font-awesome-version: "7.0.0"
+          font-awesome-version: "7.1.0"
 
       - name: Setup Just
         uses: extractions/setup-just@v3
@@ -51,5 +51,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cv
-          path: template/cv.pdf
+          path: template/*.pdf
           retention-days: 7
