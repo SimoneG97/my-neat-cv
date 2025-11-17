@@ -630,7 +630,9 @@
           gutter: HORIZONTAL_PAGE_MARGIN,
           inset: 0pt,
           [
-            #context counter(page).display("1 / 1", both: true)
+            #context if counter(page).final().first() > 1 {
+              counter(page).display("1 / 1", both: true)
+            }
           ],
           [
             #author.firstname #author.lastname CV
