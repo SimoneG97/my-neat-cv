@@ -697,7 +697,12 @@
     set text(size: SIDE_CONTENT_FONT_SIZE_SCALE * 1em)
 
     show heading.where(level: 1): it => block(width: 100%, above: 2em)[
-      #set text(font: heading-font, fill: accent-color, weight: "regular")
+      #set text(
+        font: heading-font,
+        fill: accent-color,
+        weight: "regular",
+        size: 0.95em,
+      )
 
       #grid(
         columns: (0pt, 1fr),
@@ -727,12 +732,11 @@
 
   let body-content = {
     show heading.where(level: 1): it => block(width: 100%)[
-      #set block(above: 1em)
-
       #text(
         fill: accent-color,
         weight: "regular",
         font: heading-font,
+        size: 0.9em,
       )[#smallcaps(it.body)]
       #box(width: 1fr, line(length: 100%, stroke: accent-color))
     ]
