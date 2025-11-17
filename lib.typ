@@ -807,9 +807,9 @@
   /// Main text color
   /// -> color
   font-color: rgb("#333333"),
-  /// Color for header background
+  /// Color for header text
   /// -> color
-  header-color: luma(50),
+  header-text-color: luma(50),
   /// Date string for footer
   /// -> string | auto
   date: auto,
@@ -825,13 +825,13 @@
   /// Paper size
   /// -> string
   paper-size: "us-letter",
-  /// Sidebar width
+  /// Profile picture size
   /// -> length
-  side-width: 4cm,
+  profile-picture-size: 4cm,
   /// Optional custom footer
   /// -> content | auto
   footer: auto,
-  /// Main content of the CV
+  /// Main content of the letter
   /// -> content
   body,
 ) = {
@@ -839,7 +839,7 @@
     __st-theme.update((
       font-color: font-color,
       accent-color: accent-color,
-      header-color: header-color,
+      header-color: header-text-color,
       fonts: (heading: heading-font, body: body-font),
     ))
 
@@ -911,13 +911,13 @@
           bottom: page.margin.top,
         ),
         grid(
-          columns: (side-width, auto),
+          columns: (profile-picture-size, auto),
           gutter: page.margin.left,
           if profile-picture != none {
             block(
               clip: true,
               stroke: accent-color + __stroke_length(1),
-              radius: side-width / 2,
+              radius: profile-picture-size / 2,
               profile-picture,
             )
           },
