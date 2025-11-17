@@ -71,4 +71,5 @@ _compile input output:
 # Compile to PNG
 _compile-png input output page:
     @typst compile --root . --format png --pages {{ page }} {{ input }} {{ output }}
+    @magick {{ output }} -bordercolor black -border 1 {{ output }}
     @oxipng {{ output }}
