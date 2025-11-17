@@ -28,7 +28,7 @@
   accent-color: rgb("#4682b4"),
   // font-color: rgb("#333333"),
   header-color: rgb("#35414d"),
-  // date: datetime.today().display("[month repr:long] [year]"),
+  // date: auto,
   // heading-font: "Fira Sans",
   // body-font: ("Noto Sans", "Roboto"),
   // body-font-size: 10.5pt,
