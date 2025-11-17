@@ -1,3 +1,4 @@
+#import "@preview/datify:1.0.0": custom-date-format
 #import "@preview/fontawesome:0.6.0": fa-icon
 
 // Global state for theme and author information
@@ -553,8 +554,8 @@
   /// -> color
   header-color: luma(50),
   /// Date string for footer
-  /// -> string
-  date: datetime.today().display("[month repr:long] [year]"),
+  /// -> string | auto
+  date: auto,
   /// Font for headings
   /// -> string
   heading-font: "Fira Sans",
@@ -634,7 +635,17 @@
           [
             #author.firstname #author.lastname CV
             #box(inset: (x: 0.3em / FOOTER_FONT_SIZE_SCALE), sym.dot.c)
-            #text(date)
+            #if date == auto {
+              context {
+                custom-date-format(
+                  datetime.today(),
+                  pattern: "MMMM, yyyy",
+                  lang: text.lang,
+                )
+              }
+            } else {
+              date
+            }
           ],
 
           [],
@@ -800,8 +811,8 @@
   /// -> color
   header-color: luma(50),
   /// Date string for footer
-  /// -> string
-  date: datetime.today().display("[month repr:long] [year]"),
+  /// -> string | auto
+  date: auto,
   /// Font for headings
   /// -> string
   heading-font: "Fira Sans",
@@ -878,7 +889,17 @@
           [
             #author.firstname #author.lastname Cover Letter
             #box(inset: (x: 0.3em / FOOTER_FONT_SIZE_SCALE), sym.dot.c)
-            #text(date)
+            #if date == auto {
+              context {
+                custom-date-format(
+                  datetime.today(),
+                  pattern: "MMMM, yyyy",
+                  lang: text.lang,
+                )
+              }
+            } else {
+              date
+            }
           ],
 
           [],

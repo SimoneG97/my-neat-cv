@@ -3,6 +3,8 @@
   publications, side, social-links,
 )
 
+#set text(lang: "en")  // Change to display date in your language
+
 #show: cv.with(
   author: (
     firstname: "Emmett",
@@ -35,6 +37,7 @@
   // gdpr: false,
   // footer: auto,
 )
+
 
 #side[
   = About me
