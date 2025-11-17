@@ -636,13 +636,11 @@
             #author.firstname #author.lastname CV
             #box(inset: (x: 0.3em / FOOTER_FONT_SIZE_SCALE), sym.dot.c)
             #if date == auto {
-              context {
-                custom-date-format(
-                  datetime.today(),
-                  pattern: "MMMM, yyyy",
-                  lang: text.lang,
-                )
-              }
+              context custom-date-format(
+                datetime.today(),
+                pattern: "MMMM, yyyy",
+                lang: text.lang,
+              )
             } else {
               date
             }
@@ -877,32 +875,21 @@
           size: FOOTER_FONT_SIZE_SCALE * 1em,
           fill: font-color.lighten(50%),
         )
-
-        #grid(
-          columns: (side-width, 1fr),
-          align: center,
-          gutter: HORIZONTAL_PAGE_MARGIN,
-          inset: 0pt,
-          [
-            #context counter(page).display("1 / 1", both: true)
-          ],
+        #align(
+          center,
           [
             #author.firstname #author.lastname Cover Letter
             #box(inset: (x: 0.3em / FOOTER_FONT_SIZE_SCALE), sym.dot.c)
             #if date == auto {
-              context {
-                custom-date-format(
-                  datetime.today(),
-                  pattern: "MMMM, yyyy",
-                  lang: text.lang,
-                )
-              }
+              context custom-date-format(
+                datetime.today(),
+                pattern: "MMMM, yyyy",
+                lang: text.lang,
+              )
             } else {
               date
             }
           ],
-
-          [],
         )
       ]
     } else {
@@ -932,9 +919,7 @@
               profile-picture,
             )
           },
-          block(
-            width: 100%,
-          )[
+          block(width: 100%)[
             #align(left)[
               #let position = if type(author.position) == array {
                 author.position.join(box(inset: (x: 0.5em), sym.dot.c))
@@ -959,18 +944,12 @@
                 #smallcaps(position)
               ]
 
-              #text(size: 8pt)[
+              #text(size: 0.8em)[
                 #contact-info()
               ]
             ]
 
-            #align(
-              right,
-              text(
-                size: 8pt,
-                recipient,
-              ),
-            )
+            #align(right, text(size: 8pt, recipient))
           ],
         ),
       )
@@ -981,16 +960,11 @@
 
   v(HEADER_BODY_GAP)
 
-  set par(
-    spacing: 1.20em,
-  )
+  set par(spacing: 1.20em, justify: true)
 
   block(
-    inset: (
-      left: 3cm,
-      right: 2cm,
-      top: 1cm,
-    ),
+    width: 100%,
+    inset: (left: 2cm, right: 2cm, top: 1cm),
     body,
   )
 }
