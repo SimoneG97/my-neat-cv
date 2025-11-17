@@ -1,7 +1,9 @@
-#import "@preview/neat-cv:0.5.0": (
+#import "@preview/neat-cv:0.5.1": (
   contact-info, cv, email-link, entry, item-pills, item-with-level,
   publications, side, social-links,
 )
+
+#set text(lang: "en")  // Change to display date in your language
 
 #show: cv.with(
   author: (
@@ -25,8 +27,8 @@
   profile-picture: image("profile.png"),
   accent-color: rgb("#4682b4"),
   // font-color: rgb("#333333"),
-  header-color: rgb("#3b4f60"),
-  // date: datetime.today().display("[month repr:long] [year]"),
+  header-color: rgb("#35414d"),
+  // date: auto,
   // heading-font: "Fira Sans",
   // body-font: ("Noto Sans", "Roboto"),
   // body-font-size: 10.5pt,
@@ -35,6 +37,7 @@
   // gdpr: false,
   // footer: auto,
 )
+
 
 #side[
   = About me

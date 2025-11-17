@@ -1,3 +1,4 @@
+#import "@preview/datify:1.0.0": custom-date-format
 #import "@preview/fontawesome:0.6.0": fa-icon
 
 // Global state for theme and author information
@@ -553,8 +554,8 @@
   /// -> color
   header-color: luma(50),
   /// Date string for footer
-  /// -> string
-  date: datetime.today().display("[month repr:long] [year]"),
+  /// -> string | auto
+  date: auto,
   /// Font for headings
   /// -> string
   heading-font: "Fira Sans",
@@ -629,12 +630,22 @@
           gutter: HORIZONTAL_PAGE_MARGIN,
           inset: 0pt,
           [
-            #context counter(page).display("1 / 1", both: true)
+            #context if counter(page).final().first() > 1 {
+              counter(page).display("1 / 1", both: true)
+            }
           ],
           [
             #author.firstname #author.lastname CV
             #box(inset: (x: 0.3em / FOOTER_FONT_SIZE_SCALE), sym.dot.c)
-            #text(date)
+            #if date == auto {
+              context custom-date-format(
+                datetime.today(),
+                pattern: "MMMM, yyyy",
+                lang: text.lang,
+              )
+            } else {
+              date
+            }
           ],
 
           [],
@@ -697,7 +708,12 @@
     set text(size: SIDE_CONTENT_FONT_SIZE_SCALE * 1em)
 
     show heading.where(level: 1): it => block(width: 100%, above: 2em)[
-      #set text(font: heading-font, fill: accent-color, weight: "regular")
+      #set text(
+        font: heading-font,
+        fill: accent-color,
+        weight: "regular",
+        size: 0.95em,
+      )
 
       #grid(
         columns: (0pt, 1fr),
@@ -727,12 +743,11 @@
 
   let body-content = {
     show heading.where(level: 1): it => block(width: 100%)[
-      #set block(above: 1em)
-
       #text(
         fill: accent-color,
         weight: "regular",
         font: heading-font,
+        size: 0.9em,
       )[#smallcaps(it.body)]
       #box(width: 1fr, line(length: 100%, stroke: accent-color))
     ]
@@ -792,12 +807,12 @@
   /// Main text color
   /// -> color
   font-color: rgb("#333333"),
-  /// Color for header background
+  /// Color for header text
   /// -> color
-  header-color: luma(50),
+  header-text-color: luma(50),
   /// Date string for footer
-  /// -> string
-  date: datetime.today().display("[month repr:long] [year]"),
+  /// -> string | auto
+  date: auto,
   /// Font for headings
   /// -> string
   heading-font: "Fira Sans",
@@ -810,13 +825,13 @@
   /// Paper size
   /// -> string
   paper-size: "us-letter",
-  /// Sidebar width
+  /// Profile picture size
   /// -> length
-  side-width: 4cm,
+  profile-picture-size: 4cm,
   /// Optional custom footer
   /// -> content | auto
   footer: auto,
-  /// Main content of the CV
+  /// Main content of the letter
   /// -> content
   body,
 ) = {
@@ -824,7 +839,7 @@
     __st-theme.update((
       font-color: font-color,
       accent-color: accent-color,
-      header-color: header-color,
+      header-color: header-text-color,
       fonts: (heading: heading-font, body: body-font),
     ))
 
@@ -862,22 +877,21 @@
           size: FOOTER_FONT_SIZE_SCALE * 1em,
           fill: font-color.lighten(50%),
         )
-
-        #grid(
-          columns: (side-width, 1fr),
-          align: center,
-          gutter: HORIZONTAL_PAGE_MARGIN,
-          inset: 0pt,
-          [
-            #context counter(page).display("1 / 1", both: true)
-          ],
+        #align(
+          center,
           [
             #author.firstname #author.lastname Cover Letter
             #box(inset: (x: 0.3em / FOOTER_FONT_SIZE_SCALE), sym.dot.c)
-            #text(date)
+            #if date == auto {
+              context custom-date-format(
+                datetime.today(),
+                pattern: "MMMM, yyyy",
+                lang: text.lang,
+              )
+            } else {
+              date
+            }
           ],
-
-          [],
         )
       ]
     } else {
@@ -897,19 +911,17 @@
           bottom: page.margin.top,
         ),
         grid(
-          columns: (side-width, auto),
+          columns: (profile-picture-size, auto),
           gutter: page.margin.left,
           if profile-picture != none {
             block(
               clip: true,
               stroke: accent-color + __stroke_length(1),
-              radius: side-width / 2,
+              radius: profile-picture-size / 2,
               profile-picture,
             )
           },
-          block(
-            width: 100%,
-          )[
+          block(width: 100%)[
             #align(left)[
               #let position = if type(author.position) == array {
                 author.position.join(box(inset: (x: 0.5em), sym.dot.c))
@@ -917,7 +929,7 @@
                 author.position
               }
 
-              #set text(fill: header-color, font: heading-font)
+              #set text(fill: header-text-color, font: heading-font)
 
               #text(size: 2em)[
                 #text(weight: "light")[#author.firstname]
@@ -934,18 +946,12 @@
                 #smallcaps(position)
               ]
 
-              #text(size: 8pt)[
+              #text(size: 0.8em)[
                 #contact-info()
               ]
             ]
 
-            #align(
-              right,
-              text(
-                size: 8pt,
-                recipient,
-              ),
-            )
+            #align(right, text(size: 0.8em, recipient))
           ],
         ),
       )
@@ -956,16 +962,11 @@
 
   v(HEADER_BODY_GAP)
 
-  set par(
-    spacing: 1.20em,
-  )
+  set par(spacing: 1.20em, justify: true)
 
   block(
-    inset: (
-      left: 3cm,
-      right: 2cm,
-      top: 1cm,
-    ),
+    width: 100%,
+    inset: (left: 2cm, right: 2cm, top: 1cm),
     body,
   )
 }
