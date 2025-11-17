@@ -929,7 +929,7 @@
                 author.position
               }
 
-              #set text(fill: header-color, font: heading-font)
+              #set text(fill: header-text-color, font: heading-font)
 
               #text(size: 2em)[
                 #text(weight: "light")[#author.firstname]
