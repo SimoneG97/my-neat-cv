@@ -951,7 +951,7 @@
               ]
             ]
 
-            #align(right, text(size: 8pt, recipient))
+            #align(right, text(size: 0.8em, recipient))
           ],
         ),
       )
