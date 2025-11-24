@@ -121,7 +121,7 @@
   accent-color: none,
 ) = {
   context {
-    let _accent-color = if accent-color == none {
+    let accent-color-value = if accent-color == none {
       __st-theme.final().accent-color
     } else {
       accent-color
@@ -130,14 +130,14 @@
     let levels = range(max-level).map(l => box(
       height: LEVEL_BAR_BOX_HEIGHT,
       width: 100%,
-      stroke: _accent-color + __stroke_length(0.75),
+      stroke: accent-color-value + __stroke_length(0.75),
       rect(
         width: 100%
           * if (level - l < 0) { 0 } else if (level - l > 1) { 1 } else {
             level - l
           },
         height: 100%,
-        fill: _accent-color,
+        fill: accent-color-value,
       ),
     ))
     grid(
@@ -281,7 +281,7 @@
 #let social-links() = (
   context {
     let author = __st-author.final()
-    let social_defs = (
+    let social-defs = (
       ("website", "globe", ""),
       ("twitter", "twitter", "https://twitter.com/"),
       ("mastodon", "mastodon", "https://mastodon.social/"),
@@ -299,9 +299,9 @@
 
     set text(size: 0.95em, fill: luma(100))
 
-    for (key, icon, url_prefix) in social_defs {
+    for (key, icon, url-prefix) in social-defs {
       if key in author {
-        let url = url_prefix + author.at(key)
+        let url = url-prefix + author.at(key)
         let display = author.at(key)
 
         if key == "website" {
@@ -312,7 +312,7 @@
             if parts.len() >= 3 {
               "https://" + parts.at(2) + "/@" + parts.at(1)
             } else {
-              url_prefix + display
+              url-prefix + display
             }
           }
         }
@@ -397,25 +397,25 @@
   for (i, author) in pub.author.enumerate() {
     if i < max-authors {
       let author-display = {
-        let author_parts = author.split(", ")
-        let last_name = author_parts.at(0, default: author)
-        let first_names_str = author_parts.at(1, default: "")
+        let author-parts = author.split(", ")
+        let last-name = author-parts.at(0, default: author)
+        let first-names-str = author-parts.at(1, default: "")
 
-        let initials_content = first_names_str
+        let initials-content = first-names-str
           .split(" ")
           .filter(p => p.len() > 0)
           .map(p => [#p.at(0).])
 
-        let joined_initials = if initials_content.len() > 0 {
-          initials_content.join(" ")
+        let joined-initials = if initials-content.len() > 0 {
+          initials-content.join(" ")
         } else {
           []
         }
 
-        if first_names_str == "" {
-          [#last_name]
+        if first-names-str == "" {
+          [#last-name]
         } else {
-          [#joined_initials #last_name]
+          [#joined-initials #last-name]
         }
       }
 
@@ -704,7 +704,7 @@
     }
   }
 
-  let side-content = context {
+  let side-content-block = context {
     set text(size: SIDE_CONTENT_FONT_SIZE_SCALE * 1em)
 
     show heading.where(level: 1): it => block(width: 100%, above: 2em)[
@@ -741,7 +741,7 @@
     state("side-content").final()
   }
 
-  let body-content = {
+  let body-content-block = {
     show heading.where(level: 1): it => block(width: 100%)[
       #text(
         fill: accent-color,
@@ -771,9 +771,9 @@
         (left: (HORIZONTAL_PAGE_MARGIN / 2), y: 1mm)
       }
     },
-    side-content,
+    side-content-block,
     grid.vline(stroke: luma(180) + __stroke_length(0.5)),
-    body-content,
+    body-content-block,
   )
 }
 
