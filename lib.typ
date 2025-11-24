@@ -324,7 +324,7 @@
     if "custom-links" in author {
       for link in author.custom-links {
         __social-link(
-          if { "icon-name" in link and link.icon-name != none } {
+          if "icon-name" in link and link.icon-name != none {
             link.icon-name
           } else {
             "link"
