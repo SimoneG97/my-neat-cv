@@ -1,7 +1,7 @@
 # Neat CV
-![Release](https://img.shields.io/github/v/release/dialvarezs/neat-cv?style=flat-square)
+[![Release](https://img.shields.io/github/v/release/dialvarezs/neat-cv?style=flat-square)](https://github.com/dialvarezs/neat-cv/releases)
 [![Tests](https://img.shields.io/github/actions/workflow/status/dialvarezs/neat-cv/ci.yml?style=flat-square)](https://github.com/dialvarezs/neat-cv/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/dialvarezs/neat-cv?style=flat-square)](LICENSE)
+![License](https://img.shields.io/github/license/dialvarezs/neat-cv?style=flat-square)
 [![Stars](https://img.shields.io/github/stars/dialvarezs/neat-cv?style=flat-square)](https://github.com/dialvarezs/neat-cv/stargazers)
 
 A modern and elegant CV template for Typst, inspired by [Awesome CV](https://github.com/posquit0/Awesome-CV) and [simple-hipstercv](https://github.com/latex-ninja/simple-hipstercv).
