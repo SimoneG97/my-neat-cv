@@ -1,6 +1,8 @@
 # Neat CV
-![Release](https://img.shields.io/github/v/release/dialvarezs/neat-cv)
-[![Tests](https://github.com/dialvarezs/neat-cv/actions/workflows/ci.yml/badge.svg)](https://github.com/dialvarezs/neat-cv/actions/workflows/ci.yml)
+![Release](https://img.shields.io/github/v/release/dialvarezs/neat-cv?style=flat-square)
+[![Tests](https://img.shields.io/github/actions/workflow/status/dialvarezs/neat-cv/ci.yml?style=flat-square)](https://github.com/dialvarezs/neat-cv/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/dialvarezs/neat-cv?style=flat-square)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/dialvarezs/neat-cv?style=flat-square)](https://github.com/dialvarezs/neat-cv/stargazers)
 
 A modern and elegant CV template for Typst, inspired by [Awesome CV](https://github.com/posquit0/Awesome-CV) and [simple-hipstercv](https://github.com/latex-ninja/simple-hipstercv).
 
@@ -12,6 +14,16 @@ A modern and elegant CV template for Typst, inspired by [Awesome CV](https://git
 - Publication list generated from Hayagriva YAML, grouped by year, with author highlighting
 - Level bars for languages and skills
 - Social/contact info with icons and clickable links
+
+## Preview
+
+### CV
+
+<img src="assets/cv_p1.png" alt="CV Page 1" width="49%"/> <img src="assets/cv_p2.png" alt="CV Page 2" width="49%"/>
+
+### Cover Letter
+
+<img src="assets/letter.png" alt="Cover letter" width="49%"/>
 
 ## Requirements
 
@@ -143,13 +155,3 @@ Sincerely,
 ```
 
 For a complete example, see the `template/letter.typ` file in the repository.
-
-## Example
-
-### CV
-
-<img src="assets/cv_p1.png" alt="CV Page 1" width="49%"/> <img src="assets/cv_p2.png" alt="CV Page 2" width="49%"/>
-
-### Cover Letter
-
-<img src="assets/letter.png" alt="Cover letter" width="49%"/>
