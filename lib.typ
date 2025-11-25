@@ -320,6 +320,20 @@
         __social-link(icon, url, display)
       }
     }
+
+    if "custom-links" in author {
+      for link in author.custom-links {
+        __social-link(
+          if "icon-name" in link and link.icon-name != none {
+            link.icon-name
+          } else {
+            "link"
+          },
+          link.url,
+          link.label,
+        )
+      }
+    }
   }
 )
 
@@ -538,7 +552,7 @@
 ///
 /// -> content
 #let cv(
-  /// Author information (firstname, lastname, etc.)
+  /// Author information dictionary. Available keys: `firstname`, `lastname`, `email`, `phone`, `address`, `position` (string or array), `website`, `twitter`, `mastodon`, `matrix`, `github`, `gitlab`, `linkedin`, `researchgate`, `scholar`, `orcid`, `custom-links` (array of dictionaries with `icon-name` (optional), `label`, and `url`).
   /// -> dictionary
   author: (:),
   /// Profile picture
@@ -792,7 +806,7 @@
 //
 /// Cover Letter layout.
 #let letter(
-  /// Author information (firstname, lastname, etc.)
+  /// Author information dictionary. Available keys: `firstname`, `lastname`, `email`, `phone`, `address`, `position` (string or array).
   /// -> dictionary
   author: (:),
   /// Recipient address
