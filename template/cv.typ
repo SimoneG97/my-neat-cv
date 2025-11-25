@@ -1,4 +1,4 @@
-#import "@preview/neat-cv:0.5.1": (
+#import "@preview/neat-cv:0.6.0": (
   contact-info, cv, email-link, entry, item-pills, item-with-level,
   publications, side, social-links,
 )
@@ -12,17 +12,28 @@
     email: "doc.brown@hillvalley.edu",
     address: [1640 Riverside Drive\ Hill Valley\ California, USA],
     phone: "(555) 121-1955",
-    // matrix: "",
     position: ("Inventor", "Theoretical Physicist"),
     website: "https://docbrownlabs.com",
     twitter: "docbrown1955",
     mastodon: "@docbrown@sciences.social",
+    // matrix: "",
     // github: "",
     // gitlab: "",
     linkedin: "emmett-brown-hv",
-    researchgate: "emmett-brown",
+    // researchgate: "",
     // scholar: "",
-    orcid: "0000-0000-0000-1955",
+    // orcid: "",
+    custom-links: (
+      (
+        icon-name: "car", // Font Awesome icon name
+        label: "DeLorean Time Machine",
+        url: "https://en.wikipedia.org/wiki/DeLorean_time_machine",
+      ),
+      (
+        label: "Back to the Future",
+        url: "https://www.backtothefuture.com/",
+      ),
+    ),
   ),
   profile-picture: image("profile.png"),
   accent-color: rgb("#4682b4"),
