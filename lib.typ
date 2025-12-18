@@ -401,14 +401,25 @@
   highlight-authors,
   pub_id,
 ) = {
-
   // in Hayagriva YAML, authors can be strings or dictionaries
-  if(type(author) == dictionary) {
-    author = author.at("prefix", default: "") + " " + author.at("name", default: "") + ", " + author.at("given-name", default: "")
+  if (type(author) == dictionary) {
+    author = (
+      author.at("prefix", default: "")
+        + " "
+        + author.at("name", default: "")
+        + ", "
+        + author.at("given-name", default: "")
+    )
   }
 
-  assert(type(author) == str,
-    message: "Author names must be strings.\nType:" + repr(type(author)) + "\nEntry: " + pub_id + "\nFound: " + repr(author)
+  assert(
+    type(author) == str,
+    message: "Author names must be strings.\nType:"
+      + repr(type(author))
+      + "\nEntry: "
+      + pub_id
+      + "\nFound: "
+      + repr(author),
   )
 
   let author-parts = author.split(", ")
@@ -447,9 +458,8 @@
   /// -> int
   max-authors,
 ) = {
-
   // Make sure that author is an array
-  if(type(pub.author) == str) {
+  if (type(pub.author) == str) {
     pub.author = (pub.author,)
   }
 
@@ -480,17 +490,17 @@
 
   // TODO: handle cases where parent is missing gracefully
   // at the moment we could assert its presence like this:
-  // assert("parent" in pub, 
-  //     message: "Missing 'parent' field for publication:\n" + 
+  // assert("parent" in pub,
+  //     message: "Missing 'parent' field for publication:\n" +
   //     repr(pub) +
   //     "\nPlease ensure that the 'parent' field is provided.")
   // Alternative is to implement the Hayagriva spec more fully
   // Below is only a partial implementation
 
-  if( not "parent" in pub) {
+  if (not "parent" in pub) {
     if "publisher" in pub {
       [ _#pub.publisher.replace(regex("[{}]"), "")_]
-    } 
+    }
   } else {
     let parent = pub.parent
 
@@ -510,7 +520,6 @@
   }
 
 
-
   if "page-range" in pub and pub.page-range != none {
     [_:#(pub.page-range)_]
   }
@@ -527,7 +536,8 @@
 }
 
 /// Displays publications for a specific year.
-#let __format-publications-year(publications-year,
+#let __format-publications-year(
+  publications-year,
   /// Authors to highlight
   /// -> array
   highlight-authors,
@@ -550,7 +560,7 @@
 /// Displays publications grouped by year from a Hayagriva YAML file.
 ///
 /// -> content
-/// TODO: this should be handled by default biblography support in the future, 
+/// TODO: this should be handled by default biblography support in the future,
 /// so that for example different CLS citation styles can be used
 #let publications(
   /// Data loaded from YAML file
@@ -573,7 +583,6 @@
 
     // loop over the dictionary so we catch the keys (IDs)
     for (key, pub) in yaml-data {
-
       // add the ID to the publication data so we can better debug if needed
       pub.__id = key
 
@@ -593,7 +602,7 @@
 
     let all-years = publications-by-year.keys().sorted()
 
-    if(reverse-order) {
+    if (reverse-order) {
       all-years = all-years.rev()
     }
 
@@ -602,16 +611,15 @@
         columns: (ENTRY_LEFT_COLUMN_WIDTH, auto),
         align: (right, left),
         column-gutter: .8em,
-          text(size: 0.8em, fill: theme.font-color.lighten(50%), year),
+        text(size: 0.8em, fill: theme.font-color.lighten(50%), year),
 
-          __format-publications-year(
-            publications-by-year.at(year),
-            highlight-authors,
-            max-authors,
+        __format-publications-year(
+          publications-by-year.at(year),
+          highlight-authors,
+          max-authors,
         ),
       )
     }
-    
   }
 )
 
