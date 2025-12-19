@@ -394,7 +394,9 @@
 
 // ---- Publications ----
 
-// Process a single author
+/// Process a single author
+///
+/// -> content
 #let __format-author(
   // author data
   author,
