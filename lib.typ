@@ -561,7 +561,7 @@
 /// Displays publications grouped by year from a Hayagriva YAML file.
 ///
 /// -> content
-/// TODO: this should be handled by default biblography support in the future,
+/// TODO: this should be handled by default bibliography support once it becomes more flexible,
 /// so that for example different CLS citation styles can be used
 #let publications(
   /// Data loaded from YAML file
