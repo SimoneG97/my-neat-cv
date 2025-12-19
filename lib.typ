@@ -415,7 +415,7 @@
 
   assert(
     type(author) == str,
-    message: "Author names must be strings.\nType:"
+    message: "Author names must be strings or dictionaries.\nType:"
       + repr(type(author))
       + "\nEntry: "
       + pub_id
