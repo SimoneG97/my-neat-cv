@@ -400,7 +400,6 @@
 #let __format-author(
   // author data
   author,
-  highlight-authors,
   pub_id,
 ) = {
   // in Hayagriva YAML, authors can be strings or dictionaries
