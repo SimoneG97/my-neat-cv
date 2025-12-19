@@ -582,7 +582,6 @@
 
     set block(above: 0.7em, width: 100%)
 
-    // loop over the dictionary so we catch the keys (IDs)
     for (key, pub) in yaml-data {
       // add the ID to the publication data so we can better debug if needed
       pub.__id = key
