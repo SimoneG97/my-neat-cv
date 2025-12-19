@@ -466,7 +466,7 @@
 
   for (i, author) in pub.author.enumerate() {
     if i < max-authors {
-      let author-display = __format-author(author, highlight-authors, pub.__id)
+      let author-display = __format-author(author, pub.__id)
 
       if author in highlight-authors {
         text(weight: "medium", author-display)
