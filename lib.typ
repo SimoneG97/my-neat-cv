@@ -1,5 +1,5 @@
 #import "@preview/datify:1.0.0": custom-date-format
-#import "@preview/fontawesome:0.6.1": fa-icon
+#import "@preview/fontawesome:0.6.0": fa-icon
 
 // Global state for theme and author information
 #let __st-theme = state("theme")
@@ -410,7 +410,7 @@
         + author.at("name", default: "")
         + ", "
         + author.at("given-name", default: "")
-    )
+    ).trim()
   }
 
   assert(
@@ -427,22 +427,17 @@
   let last-name = author-parts.at(0, default: author)
   let first-names-str = author-parts.at(1, default: "")
 
-  let initials-content = first-names-str
+  if first-names-str == "" {
+    return [#last-name]
+  }
+
+  let initials = first-names-str
     .split(" ")
     .filter(p => p.len() > 0)
     .map(p => [#p.at(0).])
+    .join(" ")
 
-  let joined-initials = if initials-content.len() > 0 {
-    initials-content.join(" ")
-  } else {
-    []
-  }
-
-  if first-names-str == "" {
-    [#last-name]
-  } else {
-    [#joined-initials #last-name]
-  }
+  [#initials #last-name]
 }
 
 /// Formats a publication entry (article, conference, etc.).
