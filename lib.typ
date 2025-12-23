@@ -1,5 +1,5 @@
 #import "@preview/datify:1.0.0": custom-date-format
-#import "@preview/fontawesome:0.6.0": fa-icon
+#import "@preview/fontawesome:0.6.1": fa-icon
 
 // Global state for theme and author information
 #let __st-theme = state("theme")
