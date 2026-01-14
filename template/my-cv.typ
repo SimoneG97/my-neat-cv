@@ -1,12 +1,14 @@
-//#import "@preview/neat-cv:0.1.0": (
-//  contact-info, cv, entry, item-pills, item-with-level, publications, side,
-//  social-links,
+//#import "@preview/neat-cv:0.6.1": (
+//  contact-info, cv, email-link, entry, item-pills, item-with-level,
+//  publications, side, social-links,
 //)
 
 #import "../lib.typ": (
-  contact-info, cv, entry, item-pills, item-with-level, publications, side,
-  social-links,
+  contact-info, cv, email-link, entry, item-pills, item-with-level,
+  publications, side, social-links,
 )
+
+#set text(lang: "en")  // Change to display date in your language
 
 #show: cv.with(
   author: (
@@ -18,7 +20,7 @@
     position: ("Software Engineer"),
     // website: "https://docbrownlabs.com",
     // twitter: "docbrown1955",
-    mastodon: "@xzoppy@mastodon.online",
+    website: "simoneg97.github.io",
     github: "github.com/SimoneG97",
     // gitlab: "",
     linkedin: "linkedin.com/in/simone-galante-3125b0257",
@@ -34,7 +36,8 @@
   // body-font: ("Noto Sans", "Roboto"),
   // paper-size: "us-letter",
   // side-width: 4cm,
-  gdpr: true
+  gdpr: true,
+  footer: auto
 )
 
 #side[
@@ -47,6 +50,8 @@
 
   I have used Python and Java for big projects, Scala and C\# on smaller side-projects and Rust
   for personal projects and would love to try programming with it for work.
+
+  Also please check out my website for more info!
 
   = Contact
   #contact-info()
@@ -114,7 +119,7 @@
   institution: "Ready2Use S.r.l.",
   location: "Italia, Abruzzo, Pescara",
 )[
-  - Developed Java 21 microservices deployed with Kubernetes in a Google Cloud Platform
+  - Developed Java 11/21 microservices deployed with Kubernetes in a Google Cloud Platform
     environment via GitHub actions.
 
   - Developed RESTful APIs and integrated third-party services like Camunda 7, while
@@ -124,7 +129,6 @@
   - Worked on setting up multiple Linux machines to have an internal testing
     environment to check difficult-to-replicate behaviours.
     (e.g. Reverse Proxy, SSL, Docker, etc..)
-
 
   - Created multiple Azure pipelines which builds a Docker image and deploys
     updated images on the previously mentioned testing environments.
