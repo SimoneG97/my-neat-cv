@@ -1,9 +1,4 @@
-//#import "@preview/neat-cv:0.6.1": (
-//  contact-info, cv, email-link, entry, item-pills, item-with-level,
-//  publications, side, social-links,
-//)
-
-#import "../lib.typ": (
+#import "@preview/neat-cv:0.7.0": (
   contact-info, cv, email-link, entry, item-pills, item-with-level,
   publications, side, social-links,
 )
@@ -42,7 +37,9 @@
 
 #side[
   = Profile Summary
-  I have a good background in building backend applications, especially focusing on performance optimizations.
+  I've always loved everything related to CS and I think in this field you never stop learning. \
+
+  I have a experience in building backend applications, especially focusing on performance optimizations.
   All projects I've worked were setup to be Docker-friendly. \
 
   Throughout the projects I've worked on, I've have used specialized technologies, like OPC-UA for IIoT, ANTLR
@@ -115,34 +112,62 @@
 = Professional Experience
 #entry(
   title: "Software Engineer",
-  date: "2024 - Present",
-  institution: "Ready2Use S.r.l.",
+  date: "June 2024 -\nPresent",
+  institution: {[*Ready2Use S.r.l. (Consulting company)*]},
   location: "Italia, Abruzzo, Pescara",
 )[
-  - Developed Java 11/21 microservices deployed with Kubernetes in a Google Cloud Platform
-    environment via GitHub actions.
+  #entry(
+    date: "April 2025 -\nPresent",
+    institution: {[*Zurich 4Care S.p.A.*]}
+  )[
+    #underline[Main stack]: Java 11/21, Spring Boot 2/3, Python, MySQL \
+    #underline[Technologies]: Docker, Kubernetes, Linux, GitHub Actions, Google Cloud Platform \
 
-  - Developed RESTful APIs and integrated third-party services like Camunda 7, while
-    also designing a DSL to integrate in Camunda forms to inject validation / assertions
-    and integrating validation in the already existing APIs.
+    - Developed an SMS/Whatsapp/Email messaging microservice and a flow management microservice
+      with their respective GitHub action for compiling, building docker images and deploy con GKE.
+    - Helped in suggesting how to refactor old code which was previously monolithic.
+  ]
 
-  - Worked on setting up multiple Linux machines to have an internal testing
-    environment to check difficult-to-replicate behaviours.
-    (e.g. Reverse Proxy, SSL, Docker, etc..)
+  #entry(
+    date: "February 2025 -\nMarch 2025",
+    institution: {[*Fater S.p.A.*]}
+  )[
+    #underline[Main stack]: Java 21, Spring Boot 3, Typescript, Groovy, MySQL \
+    #underline[Technologies]: Docker, Linux, Jenkins Pipelines \
 
-  - Created multiple Azure pipelines which builds a Docker image and deploys
-    updated images on the previously mentioned testing environments.
+    - Defined project given requirements and developed MVP, in particular:
+      - Developed BPMN, DMN & Forms with Camunda 7/8
+      - Created a Jenkins pipeline to automate and project security scan by using a Dockerfile to extend their already existing one to scan it through Mend CLI.
+  ]
 
-  - Created a Jenkins pipeline which builds a Docker image that
-    contains a project, extracts its build and makes scan through Mend CLI.
+  #entry(
+    date: "June 2024 -\nFebruary 2025",
+    institution: {[*TIM S.p.A.*]}
+  )[
+    #underline[Main stack]: Java 21, Spring Boot 3, Typescript, Scala, MySQL \
+    #underline[Technologies]: Docker, Kubernetes, Linux, Azure DevOps \
+
+    - Developed RESTful APIs and integrated third-party services like Camunda 7, while
+      also designing a DSL to integrate in Camunda forms to inject validation / assertions
+      and integrating validation in the already existing APIs.
+    - Worked on setting up multiple Linux machines to have an internal testing
+      environment to check difficult-to-replicate behaviours.
+      (e.g. Reverse Proxy, SSL, Docker, etc..)
+    - Created multiple Azure pipelines which builds a Docker image and deploys
+      updated images on the previously mentioned testing environments.
+  ]
+
 ]
 
 #entry(
-  title: "Operative Research/Backend Developer",
-  date: "2022 - 2024",
-  institution: "Digitalsoft S.r.l.",
+  title: "Python Backend Developer / Operative Research",
+  date: "February 2022 -\nJune 2024",
+  institution: {[*Digitalsoft S.r.l. (Product company)*]},
   location: "Italia, Abruzzo, Pescara",
 )[
+  #underline[Main stack]: Python, FastAPI, Pydantic, Docker, Google OR-Tools \
+  #underline[Technologies]: Docker, Linux, Azure DevOps \
+
   - Developed a MSSQL DB comparator with a "diff"-able report.
   - Developed / enhanced OPC-UA connector for IIOT connections.
   - Enhanced / bug fixing on already existing projects.
