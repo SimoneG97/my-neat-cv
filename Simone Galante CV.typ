@@ -112,14 +112,15 @@
 = Professional Experience
 #entry(
   title: "Software Engineer",
-  date: "June 2024 -\nPresent",
+  date: "Present -\nJune 2024",
   institution: {[*Ready2Use S.r.l. (Consulting company)*]},
   location: "Italia, Abruzzo, Pescara",
 )[
   #entry(
-    date: "April 2025 -\nPresent",
+    date: "Present -\nApril 2025",
     institution: {[*Zurich 4Care S.p.A.*]}
   )[
+    #underline[Domain]: Life & Health Insurance Management Platform \
     #underline[Main stack]: Java 11/21, Spring Boot 2/3, Python, MySQL \
     #underline[Technologies]: Docker, Kubernetes, Linux, GitHub Actions, Google Cloud Platform \
 
@@ -129,9 +130,10 @@
   ]
 
   #entry(
-    date: "February 2025 -\nMarch 2025",
+    date: "April 2025 -\nFebruary 2025",
     institution: {[*Fater S.p.A.*]}
   )[
+    #underline[Domain]: Automated Security Code Scan with Approval Flow \
     #underline[Main stack]: Java 21, Spring Boot 3, Typescript, Groovy, MySQL \
     #underline[Technologies]: Docker, Linux, Jenkins Pipelines \
 
@@ -141,10 +143,11 @@
   ]
 
   #entry(
-    date: "June 2024 -\nFebruary 2025",
+    date: "February 2025 -\nJune 2024",
     institution: {[*TIM S.p.A.*]}
   )[
-    #underline[Main stack]: Java 21, Spring Boot 3, Typescript, Scala, MySQL \
+    #underline[Domain]: Investment & Approval Platform \
+    #underline[Main stack]: Java 21, Spring Boot 3, Typescript, Scala, ANTLR, MySQL \
     #underline[Technologies]: Docker, Kubernetes, Linux, Azure DevOps \
 
     - Developed RESTful APIs and integrated third-party services like Camunda 7, while
@@ -161,10 +164,11 @@
 
 #entry(
   title: "Python Backend Developer / Operative Research",
-  date: "February 2022 -\nJune 2024",
+  date: "June 2024 -\nFebruary 2022",
   institution: {[*Digitalsoft S.r.l. (Product company)*]},
   location: "Italia, Abruzzo, Pescara",
 )[
+  #underline[Domain]: Industral Production ERP & MES \
   #underline[Main stack]: Python, FastAPI, Pydantic, Docker, Google OR-Tools \
   #underline[Technologies]: Docker, Linux, Azure DevOps \
 
@@ -175,6 +179,7 @@
   - Developed CP model and solver which solves small problem instance with also block zones constraints.
 ]
 
+#colbreak()
 
 = Certifications
 
@@ -201,9 +206,6 @@
   location: "Cambridge, England",
   ""
 )
-
-
-#colbreak()
 
 = Talks
 
